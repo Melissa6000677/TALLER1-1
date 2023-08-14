@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Traslación de un Vector a un Punto</h1>
+    <form id="trasladoForm">
+        <label for="vectorX">X del vector:</label>
+        <input type="number" id="vectorX" name="vectorX" step="any" required><br><br>
+        
+        <label for="vectorY">Y del vector:</label>
+        <input type="number" id="vectorY" name="vectorY" step="any" required><br><br>
+        
+        <label for="puntoX">X del punto:</label>
+        <input type="number" id="puntoX" name="puntoX" step="any" required><br><br>
+        
+        <label for="puntoY">Y del punto:</label>
+        <input type="number" id="puntoY" name="puntoY" step="any" required><br><br>
+        
+        <button type="button" onclick="Traslado()">Calcular</button>
+    </form>
+    
+    <h2>Resultado:</h2>
+    <p id="resultado"></p>
+    
+    <script>
+        function Traslado() {
+            var vectorX = parseFloat(document.getElementById('vectorX').value);
+            var vectorY = parseFloat(document.getElementById('vectorY').value);
+            var puntoX = parseFloat(document.getElementById('puntoX').value);
+            var puntoY = parseFloat(document.getElementById('puntoY').value);
+            
+            var trasladadoX = vectorX + puntoX;
+            var trasladadoY = vectorY + puntoY;
+            
+            document.getElementById('resultado').innerHTML = "Vector Trasladado: (" + trasladadoX + ", " + trasladadoY + ")";
+        }
+    </script>
+</body>
+</html>
