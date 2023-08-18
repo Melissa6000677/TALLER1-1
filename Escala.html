@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        h2 {
+            color: purple;
+            font-size: 25px;
+            font-family: "Berlin Sans FB", sans-serif;
+        }
+
+        body {
+            font-size: 20px;
+            font-family: "Bahnschrift Light", sans-serif;
+            color: black;
+        }
+    </style>
+
+<body>
+    <h2>Escala de Vector</h2>
+    <label for="vector">Vector (x, y, z):</label>
+    <input type="text" id="vector">
+    <br><br>
+    <label for="scale">Factor de escala:</label>
+    <input type="text" id="scale">
+    <br><br>
+    <button onclick="escalarVector()">Escalar</button>
+    <br>
+    <p id="scaledVector"></p>
+</body>
+</body>
+
+<script>
+    function escalarVector() {
+        var vector = document.getElementById("vector").value;
+        var scale = parseFloat(document.getElementById("scale").value);
+
+        var vectorCoord = vector.split(",").map(parseFloat);
+
+        var scaledX = Math.round(vectorCoord[0] * scale);
+        var scaledY = Math.round(vectorCoord[1] * scale);
+        var scaledZ = Math.round(vectorCoord[2] * scale);
+
+        document.getElementById("scaledVector").innerHTML = "El vector escalado es: (" + scaledX + ", " + scaledY + ", " + scaledZ + ")";
+    }
+</script>
+</head>
+
+</html>
