@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        h2 {
+            color: purple;
+            font-size: 25px;
+            font-family: "Berlin Sans FB", sans-serif;
+        }
+
+        body {
+            font-size: 20px;
+            font-family: "Bahnschrift Light", sans-serif;
+            color: black;
+        }
+    </style>
+
+<body>
+    <h2>Rotación de Vector</h2>
+    <label for="vector">Vector (x, y, z):</label>
+    <input type="text" id="vector">
+    <br><br>
+    <label for="angle">Ángulo de rotación:</label>
+    <input type="text" id="angle">
+    <br><br>
+    <button onclick="rotarVector()">Rotar</button>
+    <br>
+    <p id="rotatedVector"></p>
+</body>
+
+<script>
+    function rotarVector() {
+        var vector = document.getElementById("vector").value;
+        var angulo_grados = parseFloat(document.getElementById("angle").value);
+        var angulo_radianes = angulo_grados * (Math.PI / 180);
+
+        var vector_coordenada = vector.split(",").map(parseFloat);
+
+        var rotarX = vector_coordenada[0] * Math.cos(angulo_radianes) - vector_coordenada[1] * Math.sin(angulo_radianes);
+        var rotarY = vector_coordenada[0] * Math.sin(angulo_radianes) + vector_coordenada[1] * Math.cos(angulo_radianes);
+        var rotarZ = vector_coordenada[2];
+
+        document.getElementById("rotatedVector").innerHTML = "El vector rotado es: (" + rotarX.toFixed(2) + ", " + rotarY.toFixed(2) + ", " + rotarZ.toFixed(2) + ")";
+    }
+</script>
+</head>
+
+</html>
